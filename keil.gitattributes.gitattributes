@@ -1,0 +1,8 @@
+# A .gitattributes for Keil projects
+# The project files uvprojx and uvoptx have  UNIX-style line ending (LF)
+# In Windows systemm, usually CRLF is used.
+
+*.uvoptx eol=lf
+*.uvprojx eol=lf
+*.uvproj eol=lf
+*.uvmpw eol=lf
