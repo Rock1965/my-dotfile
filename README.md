@@ -1,2 +1,3 @@
 # my-dotfile
-my dot file
+.minttyrc       : mintty (MinGW Terminal)
+TERATERM.ini    : TeraTerm
