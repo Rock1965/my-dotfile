@@ -1,34 +1,39 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    // 使用 IntelliSense 以得知可用的屬性。
+    // 暫留以檢視現有屬性的描述。
+    // 如需詳細資訊，請瀏覽: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug Main Process",
             "type": "node",
             "request": "launch",
-            "cwd": "${workspaceRoot}",
-            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
-            "windows": {
-              "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
-            },
-            "program": "${workspaceRoot}/main.js",
-            "protocol": "inspector"
-          },
-          {
-            "name": "Debug Renderer Process",
-            "type": "chrome",
-            "request": "launch",
-            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
-            "windows": {
-              "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
-            },
+            "name": "Electron: Main",
+            "protocol": "inspector",
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
             "runtimeArgs": [
-              "${workspaceRoot}/main.js",
-              "--remote-debugging-port=9222"
+                "--remote-debugging-port=9223",
+                "."
             ],
-            "webRoot": "${workspaceRoot}"
-          }
+            "windows": {
+                "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
+            }
+        },
+        {
+            "name": "Electron: Renderer",
+            "type": "chrome",
+            "request": "attach",
+            "port": 9223,
+            "webRoot": "${workspaceFolder}",
+            "timeout": 30000
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Electron: All",
+            "configurations": [
+                "Electron: Main",
+                "Electron: Renderer"
+            ]
+        }
     ]
 }
