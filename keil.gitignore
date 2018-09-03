@@ -45,6 +45,7 @@
 # Generated output files
 /Listings/*
 /Objects/*
+/Output/*
 
 # Debugger files
 *.ini
