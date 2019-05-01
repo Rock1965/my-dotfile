@@ -46,6 +46,9 @@
 /Listings/*
 /Objects/*
 /Output/*
+/DebugConfig/*
+.vscode
+*.bak
 
 # Debugger files
 *.ini
